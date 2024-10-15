@@ -61,6 +61,19 @@ class Program
         return false;
     }
 
+    // Проверка на ничью (ветка Draw)
+    static bool CheckDraw() 
+    {
+        for (int i = 0; i < 3; i++) 
+        {
+            for (int j = 0; j < 3; j++) 
+            {
+                if (board[i, j] == ' ') return false; // Если есть пустая клетка, это не ничья
+            }
+        }
+        return true; // Все клетки заполнены
+    }
+
     // Основная логика игры
     static void PlayGame() 
     {
@@ -89,6 +102,14 @@ class Program
                     {
                         PrintBoard();
                         Console.WriteLine($"Игрок {currentPlayer} победил!");
+                        gameOver = true;
+                    }
+
+                     // Проверка на ничью (ветка Draw)
+                    else if (CheckDraw()) 
+                    {
+                        PrintBoard();
+                        Console.WriteLine("Ничья!");
                         gameOver = true;
                     }
 
