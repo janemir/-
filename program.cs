@@ -126,6 +126,19 @@ class Program
                 }
             }
             
+            // Возможность рестарта игры (ветка Restart)
+            if (gameOver) 
+            {
+                Console.WriteLine("Хотите начать новую игру? (да/нет)");
+                string response = Console.ReadLine().ToLower();
+
+                if (response == "да") 
+                {
+                    InitializeBoard(); // Перезапуск игрового поля
+                    gameOver = false;  // Сброс состояния игры
+                    currentPlayer = 'X'; // Игра начинается с игрока X
+                }
+            }
         }
     }
 }
