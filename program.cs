@@ -67,8 +67,12 @@ class Program
                     board[row, col] = currentPlayer; // Игрок может сделать ход только в пустую клетку
                     validMove = true;
 
+                    else 
+                    {
+                        // Логика смены игрока (ветка Rules)
+                        currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
+                    }
 
-                    
                 } 
                 else 
                 {
